@@ -2,18 +2,21 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: qawolf/playwright-ci:v1.0.0
+      - image: mcr.microsoft.com/playwright:v1.22.0-focal
     steps:
-      - checkout
-
-      - run:
-          command: npm install
-
-      - run:
-          command: |
-            # # Start local server
-            # npm run start &
-            # npx wait-on http://localhost:3000
-            # replace below with command you want to run, example for running a script below
-            # node myScript.js
-            npm test
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+      - name: Run your tests
+        run: npm ci-test
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: playwright-report
+          path: playwright-report
