@@ -1,14 +1,6 @@
 version: 2.1
-name: Test
-
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-
 orbs:
-  node: circleci/node@4.1.0
+  node: circleci/node@4.7.0
 workflows:
   node-tests:
     jobs:
