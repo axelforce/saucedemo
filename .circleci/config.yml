@@ -1,8 +1,8 @@
-version: 2.1
+name: GitHub Actions Demo
+on: [push]
 jobs:
-  build:
-    docker:
-      - image: mcr.microsoft.com/playwright:v1.22.0-focal
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
