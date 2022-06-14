@@ -1,22 +1,15 @@
 version: 2.1
 
 jobs:
-  build:
+  test:
     docker:
       - image: mcr.microsoft.com/playwright:v1.22.0-focal
     steps:
       - checkout
       - run: npm install
-  test:
-    docker:
-      - image: mcr.microsoft.com/playwright:v1.22.0-focal
-        auth:
-    steps:
-      - checkout
       - run: xvfb-run npx playwright test
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
       - test
