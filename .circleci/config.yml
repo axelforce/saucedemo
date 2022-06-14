@@ -1,15 +1,19 @@
 version: 2.1
-orbs:
-  node: circleci/node@4.7.0
-workflows:
-  node-tests:
-    jobs:
-      - node/test:
-          app-dir: "~/new-project"
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
+jobs:
+  build:
+    docker:
+      - image: qawolf/playwright-ci:v1.0.0
     steps:
-      - run: npm ci
-      - run: npm test
+      - checkout
+
+      - run:
+          command: npm install
+
+      - run:
+          command: |
+            # # Start local server
+            # npm run start &
+            # npx wait-on http://localhost:3000
+            # replace below with command you want to run, example for running a script below
+            # node myScript.js
+            npm test
