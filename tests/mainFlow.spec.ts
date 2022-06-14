@@ -26,7 +26,7 @@ test.describe('Main Test Flow', () => {
 
   test('Logout flow', async ({ page }) => {
     await loginPage.login(userForLogin.username, userForLogin.password);
-    await productPage.logout();
+    //await productPage.logout();
 
     await expect(loginPage.loginContainer).toBeVisible();
   });
