@@ -1,25 +1,22 @@
 version: 2.1
 
 jobs:
-  saucedemo: saucedemo/tests
-
+  build:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.22.0-focal
+    steps:
+      - checkout
+      - run: npm install
+  test:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.22.0-focal
+        auth:
+    steps:
+      - checkout
+      - run: xvfb-run npx playwright test
 workflows:
-  version: 2.1
-  run-e2e-tests-desktop-dev:
-    triggers:
-      - schedule:
-          cron: "0 7,8,9 * * *"
-          filters:
-            branches:
-              only:
-                - master
+  version: 2
+  build_and_test:
     jobs:
-      - e2e_frontend:
-          name: saucedemo
-          context: ng-common
-          executor_docker_image: 'circleci/node:14.16.0'
-          checkout: true
-          filters:
-            branches:
-              only:
-                - dev
+      - build
+      - test
