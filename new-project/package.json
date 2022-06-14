@@ -1,0 +1,12 @@
+{
+  "name": "alty-member-console-e2e-tests",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@playwright/test": "1.21.1"
+  },
+  "scripts": {
+    "test": "npx playwright test",
+    "ci-test": "xvfb-run npx playwright test"
+  }
+}
