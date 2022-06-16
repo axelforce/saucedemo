@@ -14,10 +14,11 @@ jobs:
           command: npm run ci-test
       - run:
           name: Creating Dummy Artifacts
-          command: echo "my artifact files in a dir" > /saucedemo/playwrigth-report;
+          command: echo "my artifact files in a dir" > /playwrigth-report;
 
       - store_artifacts:
-          path: /saucedemo/playwrigth-report
+          path: /playwrigth-report
+          destination: artifact-file
 
 workflows:
   version: 2
