@@ -20,8 +20,6 @@ jobs:
           name: "Store snapshots and video if failed"
           path: ./test-results
           destination: artifact-file
-      - store_test_results:
-          path: ./playwright-report/index.html
 
 workflows:
   version: 2
