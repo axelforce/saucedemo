@@ -12,12 +12,6 @@ jobs:
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
-    artifacts:
-      name: "test-results-$CI_COMMIT_REF_NAME"
-      expire_in: 8 weeks
-      when: always
-      paths:
-        - tests/e2e/test-results
 
 workflows:
   version: 2
