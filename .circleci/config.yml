@@ -7,16 +7,23 @@ jobs:
     steps:
       - checkout
       - name: Install dependencies
-      - run: npm install
-      - name: Run tests in headed mode
-      - run: npm run ci-test
+      - run:
+          name: Install dependencies
+          comand: npm install
+      - run:
+          name: Run tests in headed mode
+          comand: npm run ci-test
       
 workflows:
   version: 2
   build_and_test:
+    jobs:
+      - test
+
+  daily:
     triggers:
       - schedule:
-          cron: "0 7,8,9,10,11,12,13 * * *"
+          cron: "0 7,8,9,10,11,12,13,19 * * *"
           filters:
             branches:
               only:
