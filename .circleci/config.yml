@@ -12,10 +12,17 @@ jobs:
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
-
+      - run:
+          name: Creating Dummy Artifacts
+          command: |
+            echo "my artifact file" > /tmp/artifact-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
       - store_artifacts:
           path: ./test-results
           destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
 
 workflows:
   version: 2
