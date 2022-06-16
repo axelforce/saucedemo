@@ -1,5 +1,5 @@
 import {WebPage} from "./webPage";
-import { Locator, Page } from '@playwright/test';
+import { Locator, Page, BrowserContext } from '@playwright/test';
 
 export class LoginPage extends WebPage {
   readonly userNameField: Locator;
@@ -7,7 +7,7 @@ export class LoginPage extends WebPage {
   readonly loginButton: Locator;
   readonly loginContainer: Locator;
 
-  constructor(page: Page) {
+  constructor(page: Page, context?: BrowserContext) {
     super(page);
     this.userNameField = page.locator('[data-test="username"]');
     this.passwordField = page.locator('[data-test="password"]');
