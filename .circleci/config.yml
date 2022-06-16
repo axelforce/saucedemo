@@ -12,8 +12,9 @@ jobs:
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
-      - store_test_results:
-          path: test-results
+      - store_artifacts:
+          path: saucedemo/playwrigth-report/
+          destination: circleci-docs
 
 workflows:
   version: 2
