@@ -4,7 +4,6 @@ jobs:
   test:
     docker:
       - image: mcr.microsoft.com/playwright:v1.22.0-focal
-    working_directory: /tmp
     steps:
       - checkout
       - run:
@@ -13,19 +12,8 @@ jobs:
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
-      - run:
-          name: Creating Dummy Artifacts
-          command: |
-            echo "my artifact file" > /tmp/artifact-1;
-            mkdir /tmp/artifacts;
-            echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
-
-            - store_artifacts:
-                path: /tmp/artifact-1
-                destination: artifact-file
-
-            - store_artifacts:
-                path: /tmp/artifacts
+      - store_test_results:
+          path: test-results
 
 workflows:
   version: 2
