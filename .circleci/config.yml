@@ -13,9 +13,13 @@ jobs:
           name: "Run tests in headed mode"
           command: npm run ci-test
       - store_artifacts:
+          name: "Store playwright report"
+          path: ./playwright-report
+          destination: artifact-file
+      - store_artifacts:
+          name: "Store snapshots and video if failed"
           path: ./test-results
           destination: artifact-file
-
 
 workflows:
   version: 2
