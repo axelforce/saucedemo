@@ -14,7 +14,7 @@ jobs:
           command: npm run ci-test
       - run:
           name: Creating Dummy Artifacts
-          command: cp -r ~/playwright-report ~/temp;
+          command: cp -r ~/project/playwright-report ~/temp;
 
       - store_artifacts:
           path: ~/temp
