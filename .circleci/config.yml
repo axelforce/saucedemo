@@ -6,12 +6,11 @@ jobs:
       - image: mcr.microsoft.com/playwright:v1.22.0-focal
     steps:
       - checkout
-      - name: Install dependencies
       - run:
-          name: Install dependencies
+          name: "Install dependencies"
           comand: npm install
       - run:
-          name: Run tests in headed mode
+          name: "Run tests in headed mode"
           comand: npm run ci-test
       
 workflows:
