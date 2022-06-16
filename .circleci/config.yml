@@ -12,11 +12,10 @@ jobs:
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
-      - uses: actions/upload-artifact@v2
-          if: always()
-          with:
-            name: my-artifact
-            path:
+
+      - store_artifacts:
+          path: ./test-result
+          destination: artifact-file
 
 workflows:
   version: 2
