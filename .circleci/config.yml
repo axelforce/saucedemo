@@ -12,9 +12,6 @@ jobs:
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
-      - run:
-          name: Creating Dummy Artifacts
-          command: echo "my artifact files in a dir" > /playwrigth-report;
 
       - store_artifacts:
           path: /playwrigth-report
