@@ -12,13 +12,11 @@ jobs:
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
-      - run:
-          name: Creating Dummy Artifacts
-          command: cp -r /playwright-report /temp;
-
-      - store_artifacts:
-          path: ~/temp
-          destination: artifact-file
+      - uses: actions/upload-artifact@v2
+          if: always()
+          with:
+            name: my-artifact
+            path:
 
 workflows:
   version: 2
