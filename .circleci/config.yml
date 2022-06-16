@@ -8,10 +8,10 @@ jobs:
       - checkout
       - run:
           name: "Install dependencies"
-          comand: npm install
+          command: npm install
       - run:
           name: "Run tests in headed mode"
-          comand: npm run ci-test
+          command: npm run ci-test
       
 workflows:
   version: 2
