@@ -15,7 +15,7 @@ test.describe('Main Test Flow', () => {
   test('Logout flow', async ({ page, mainMenu, loginPage }) => {
     await mainMenu.logout();
 
-    await expect(loginPage.loginContainer).toBeVisible();
+    await expect(loginPage.loginContainer).not.toBeVisible();
   });
 
   test('Adding product to Cart', async ({ page, productPage, shoppingCart }) => {
