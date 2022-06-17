@@ -20,7 +20,7 @@ test.describe('Main Test Flow', () => {
 
   test('Adding product to Cart', async ({ page, productPage, shoppingCart }) => {
     await productPage.opeProductDetailsByName('Sauce Labs Bolt T-Shirt');
-    await productPage.addToCartButton.click();
+    //await productPage.addToCartButton.click();
     await productPage.shoppingCartButton.click();
 
     await expect(shoppingCart.firstItem).toHaveText('Sauce Labs Bolt T-Shirt');
