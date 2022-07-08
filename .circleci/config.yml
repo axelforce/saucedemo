@@ -9,6 +9,7 @@ jobs:
       - run:
           name: "Install dependencies"
           command: npm install
+      - run: npx playwright install
       - run:
           name: "Run tests in headed mode"
           command: npm run ci-test
@@ -26,7 +27,7 @@ workflows:
   daily:
     triggers:
       - schedule:
-          cron: "0 7,8,9,10,11,12,13,19 * * *"
+          cron: "0 7,8,9,10, * * *"
           filters:
             branches:
               only:
