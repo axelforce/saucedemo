@@ -7,6 +7,6 @@
     "ci-test": "xvfb-run npx playwright test"
   },
   "devDependencies": {
-    "@playwright/test": "^1.22.2"
+    "@playwright/test": "1.21.1"
   }
 }
